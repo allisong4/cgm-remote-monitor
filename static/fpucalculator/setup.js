@@ -2,7 +2,7 @@
 
 //User defined
 var MFPurl = "http://www.myfitnesspal.com/food/diary/oboe_girl4";
-var secret = "7648561c412a13fa7a64ea91b0ca7ea647bcd4b2";
+//var secret = "7648561c412a13fa7a64ea91b0ca7ea647bcd4b2";
 var useDefaultFPU = false; //possible values true or false
 
 //If useDefaultFPU is true, no further settings need to be adjusted.
