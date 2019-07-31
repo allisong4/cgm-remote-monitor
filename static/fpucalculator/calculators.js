@@ -50,14 +50,14 @@ function bolusCalcWFood(mealName) {
     var FPU = 0;
     
     if (useDefaultFPU == false){
-        document.getElementById("errors").innerHTML += "<em>Original FPU:</em> " + origFPU.toFixed(1) + " (As calculated by <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2901033/' target='_blank'>traditional algorithm</a>)<br/>";
-        document.getElementById("errors").innerHTML += "<em>Net carbs:</em> " + netCarbs.toFixed(0) + " (Carbs - fiber)<br/>";
-        document.getElementById("errors").innerHTML += "<em>Net protein:</em> " + newProtein + " (Protein - 20 unless meal has < 10 carbs, then count all protein)<br/>";
-        document.getElementById("errors").innerHTML += "<em>Net fat:</em> " + newFat + " (Fat - 20)<br/>";
+        document.getElementById("errors").innerHTML += "<b>Original FPU:</b> " + origFPU.toFixed(1) + " (As calculated by <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2901033/' target='_blank'>traditional algorithm</a>)<br/>";
+        document.getElementById("errors").innerHTML += "<b>Net carbs:</b> " + netCarbs.toFixed(0) + " (Carbs - fiber)<br/>";
+        document.getElementById("errors").innerHTML += "<b>Net protein:</b> " + newProtein + " (Protein - 20 unless meal has < 10 carbs, then count all protein)<br/>";
+        document.getElementById("errors").innerHTML += "<b>Net fat:</b> " + newFat + " (Fat - 20)<br/>";
         
         FPU = (newProtein * 4.0 * proteinUnitModifer + newFat * 9.0 * fatUnitModifier) / 100.0;
 
-        document.getElementById("errors").innerHTML += "<em>Modified FPU:</em> " + FPU.toFixed(1) + " (As calculated by user defined fat and protein modifiers, as well as 'net fat' and 'net protein')<br/>";
+        document.getElementById("errors").innerHTML += "<b>Modified FPU:</b> " + FPU.toFixed(1) + " (As calculated by user defined fat and protein modifiers, as well as 'net fat' and 'net protein')<br/>";
     }
     else{
         FPU = origFPU;
@@ -66,7 +66,7 @@ function bolusCalcWFood(mealName) {
 
     var IRFactor = (10.0 / currCarbRatio);
 
-    if(reduceBolusNowBy > 0) { document.getElementById("errors").innerHTML += "<em>Refactored:</em> High fiber meal (>10g), 20% of up front carbs shifted to extended carbs<br/>"; };
+    if(reduceBolusNowBy > 0) { document.getElementById("errors").innerHTML += "<b>Refactored:</b> High fiber meal (>10g), 20% of up front carbs shifted to extended carbs<br/>"; };
     
     newBolusCarbs = CU * IRFactor * (1 - reduceBolusNowBy);
 
@@ -92,11 +92,11 @@ function bolusCalcWFood(mealName) {
         if ((newFat == 0) && (newProtein > 0) && (netCarbs < 20)) {
             newBolusCarbs += newBolusExt;
             newBolusExt = 0;
-            document.getElementById("errors").innerHTML += "<em>Refactored:</em> High protein, low fat, low carb (loads entire extended bolus into up front bolus)<br/>";
+            document.getElementById("errors").innerHTML += "<b>Refactored:</b> High protein, low fat, low carb (loads entire extended bolus into up front bolus)<br/>";
         } else if ((newFat > 0) && (newProtein > 0) && (netCarbs < 20)) {
             newBolusCarbs += newBolusExt * frontloadHighProteinDose;
             newBolusExt = newBolusExt * (1-frontloadHighProteinDose);
-            document.getElementById("errors").innerHTML += "<em>Refactored:</em> High protein, high fat, low carb (loads 40% of extended bolus into up front bolus and subtracts it from extended bolus)<br/>";
+            document.getElementById("errors").innerHTML += "<b>Refactored:</b> High protein, high fat, low carb (loads 40% of extended bolus into up front bolus and subtracts it from extended bolus)<br/>";
         }
         if (newBolusExt <= 0) {
             extBolusTime = 0;
