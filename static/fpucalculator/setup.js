@@ -6,9 +6,9 @@ var useDefaultFPU = false; //possible values true or false
 
 //If useDefaultFPU is true, no further settings need to be adjusted.
 //Custom settings if using custom FPU
-var extTimeModifier = 0.75; //possible values 0-1.0
-var fatUnitModifier = 0.11; //possible values 0-1.0
-var proteinUnitModifer = 1.0; //possible values 0-1.0
+var extTimeModifier = 0.75; //possible values >0. Values >1 are possible but not recommended.
+var fatUnitModifier = 0.11; //possible values >0. Values >1 are possible but not recommended.
+var proteinUnitModifer = 1.0; //possible values >0. Values >1 are possible but not recommended.
 var highFiberExtended = 0.2; //possible values 0-1.0
 var frontloadHighProteinDose = 0.4; //possible values 0-1.0
 
