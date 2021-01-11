@@ -1,7 +1,7 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~ INSTANTIATE VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //User defined
-var MFPurl = "http://www.myfitnesspal.com/food/diary/oboe_girl4";
+var MFPurl = "https://www.myfitnesspal.com/food/diary/oboe_girl4";
 var useDefaultFPU = false; //possible values true or false
 
 //If useDefaultFPU is true, no further settings need to be adjusted.
